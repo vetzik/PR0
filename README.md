@@ -1,9 +1,10 @@
-# SCOTT PRO ⚡
+# VETZ! PRO (beta) ⚡
 
-# @SCOTTSSH
+# @to7i_drops
 
-*PROJETO EM BETA🍷🗿
+*PROJECTO EN CONSTRUCCION🗿
 ```
 apt install wget -y; bash <(wget -qO- raw.githubusercontent.com/ScottBrabo/PR0/main/ssh-plus)
 
 ```
+# (This is a mod of ScottPro)
