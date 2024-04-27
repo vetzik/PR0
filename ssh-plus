@@ -1,8 +1,8 @@
 #!/bin/bash
 clear
 #--------------------------
-# SCRIPt SCOTT PRO
-# CANAL TELEGRAM: @scottssh
+# VETZIO PRO BETA
+# TELEGRAM: @to7i_drops
 #--------------------------
 
 # - Cores
@@ -12,7 +12,7 @@ SCOLOR='\033[0m'
 
 # - Verifica Execucao Como Root
 [[ "$EUID" -ne 0 ]] && {
-    echo -e "{RED}[x] VC PRECISA EXECULTAR COMO USUARIO ROOT !{SCOLOR}"
+    echo -e "${RED}[x] NO SE DETECTO MODO ROOT !\n${YELLOW}[!] prueba poner sudo -i o sudo su !${SCOLOR}"
     exit 1
 }
 
@@ -25,7 +25,7 @@ case "$(uname -m)" in
         arch='arm64'
         ;;
     *)
-        echo -e "${RED}[x] ARQUITETURA INCOMPATIVEL !${SCOLOR}"
+        echo -e "${RED}[x] ARQUITECTURA INCOMPATIBLE !${SCOLOR}"
         exit 1
         ;;
 esac
@@ -34,17 +34,17 @@ esac
 if grep -qs "ubuntu" /etc/os-release; then
 	os_version=$(grep 'VERSION_ID' /etc/os-release | cut -d '"' -f 2 | tr -d '.')
     [[ "$os_version" -lt 1804 ]] && {
-        echo -e "${RED}[x] VERSAO DO UBUNTU INCOMPATIVEL !\n${YELLOW}[!] REQUER UBUNTU 18.04 OU SUPERIOR !${SCOLOR}"
+        echo -e "${RED}[x] Ubuntu incompatible !\n${YELLOW}[!] req.min ubuntu 18.04 o superior !${SCOLOR}"
         exit 1
     }
 elif [[ -e /etc/debian_version ]]; then
 	os_version=$(grep -oE '[0-9]+' /etc/debian_version | head -1)
     [[ "$os_version" -lt 9 ]] && {
-        echo -e "${RED}[x] VERSAO DO DEBIAN INCOMPATIVEL !\n${YELLOW}[!] REQUER DEBIAN 9 OU SUPERIOR !${SCOLOR}"
+        echo -e "${RED}[x] Debian incompatible INCOMPATIVEL !\n${YELLOW}[!] req.min debian 9 o superior !${SCOLOR}"
         exit 1
     }
 else
-    echo -e "${RED}[x] OS INCOMPATIVEL !\n${YELLOW}[!] REQUER DISTROS BASE DEBIAN/UBUNTU !${SCOLOR}"
+    echo -e "${RED}[x] Que clase de linux metiste we :v !\n${BLUE}[!] Instala de nuevo el script en una vps con linux ubuntu o debian !${SCOLOR}"
     exit 1
 fi
 
@@ -60,4 +60,4 @@ sysctl -p -f /etc/sysctl.d/70-disable-ipv6.conf
 
 # - Execulta instalador
 [[ -e Plus ]] && rm Plus
-wget raw.githubusercontent.com/ScottBrabo/PR0/main/script/${arch}/Plus && chmod 777 Plus && ./Plus
+wget raw.githubusercontent.com/vetzik/PR0/main/script/${arch}/Plus && chmod 777 Plus && ./Plus
