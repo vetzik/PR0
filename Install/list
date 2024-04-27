@@ -2,7 +2,7 @@
 #====================================================
 #	@scottssh
 #====================================================
-_lvk=$(wget -qO- https://raw.githubusercontent.com/ScottBrabo/PR0/main/Modulos/versao)
+_lvk=$(wget -qO- https://raw.githubusercontent.com/vetzik/PR0/main/Modulos/versao)
 IP=$(wget -qO- ipv4.icanhazip.com)
 IP2=$(wget -qO- http://whatismyip.akamai.com/)
 [[ "$IP" != "$IP2" ]] && ipdovps="$IP2" || ipdovps="$IP"
@@ -81,7 +81,7 @@ crontab -r >/dev/null 2>&1
 	echo "0 */6 * * * /bin/uexpired"
 ) | crontab -
 echo "$_lvk" | sed -n '1 p' | cut -d' ' -f2 >/bin/versao && cat /bin/versao >/home/sshplus
-wget https://github.com/ScottBrabo/PR0/raw/main/Install/jq-linux64 >/dev/null 2>&1
+wget https://github.com/vetzik/PR0/raw/main/Install/jq-linux64 >/dev/null 2>&1
 chmod +x jq-linux64 && mv jq-linux64 $(which jq)
 service cron restart >/dev/null 2>&1
 service ssh restart >/dev/null 2>&1
@@ -89,4 +89,4 @@ service ssh restart >/dev/null 2>&1
 rm -rf $lst1/list >/dev/null 2>&1
 mkdir /opt/sshplus
 echo > /opt/sshplus/sshplus
-cd /etc/SSHPlus/ && wget https://raw.githubusercontent.com/ScottBrabo/PR0/main/Modulos/WebSocket && wget https://raw.githubusercontent.com/ScottBrabo/PR0/main/Modulos/pub.key && wget https://raw.githubusercontent.com/ScottBrabo/PR0/main/Modulos/priv.pem && chmod 777 WebSocket && cd $HOME
+cd /etc/SSHPlus/ && wget https://raw.githubusercontent.com/vetzik/PR0/main/Modulos/WebSocket && wget https://raw.githubusercontent.com/vetzik/PR0/main/Modulos/pub.key && wget https://raw.githubusercontent.com/vetzik/PR0/main/Modulos/priv.pem && chmod 777 WebSocket && cd $HOME
